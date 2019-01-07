@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/mila.xu/scene_recognition/MY_scene_TF/skylog/model/model199000/model199000model.ckpt"
+all_model_checkpoint_paths: "/home/mila.xu/scene_recognition/MY_scene_TF/skylog/model/model199000/model199000model.ckpt"
