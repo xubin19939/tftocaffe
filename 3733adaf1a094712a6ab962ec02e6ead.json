@@ -1,0 +1,2966 @@
+{
+  "node": [
+    {
+      "name": "inputs",
+      "attr": {
+        "shape": {
+          "shape": {
+            "dim": [
+              {
+                "size": "-1"
+              },
+              {
+                "size": "256"
+              },
+              {
+                "size": "256"
+              },
+              {
+                "size": "3"
+              }
+            ]
+          }
+        },
+        "dtype": {
+          "type": "DT_FLOAT32"
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "256"
+                  },
+                  {
+                    "size": "256"
+                  },
+                  {
+                    "size": "3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DataInput"
+    },
+    {
+      "input": [
+        "inputs"
+      ],
+      "name": "conv_0/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "2",
+              "2",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "5",
+              "5",
+              "3",
+              "16"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "16"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "conv_0/Conv2D"
+      ],
+      "name": "conv_0/Relu",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "16"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu"
+    },
+    {
+      "input": [
+        "conv_0/Relu"
+      ],
+      "name": "n1_26/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "16",
+              "96"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "96"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_26/conv/Conv2D"
+      ],
+      "name": "n1_26/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "128"
+                  },
+                  {
+                    "size": "96"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_26/conv/Relu6"
+      ],
+      "name": "n1_26/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "96",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "96"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n1_26/depthwise/BiasAdd"
+      ],
+      "name": "n1_26/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "96"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_26/depthwise/Relu6"
+      ],
+      "name": "n1_26/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "96",
+              "24"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "24"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_26/pointwise/Conv2D"
+      ],
+      "name": "n1_256a/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "24",
+              "144"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_256a/conv/Conv2D"
+      ],
+      "name": "n1_256a/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_256a/conv/Relu6"
+      ],
+      "name": "n1_256a/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "144",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n1_256a/depthwise/BiasAdd"
+      ],
+      "name": "n1_256a/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_256a/depthwise/Relu6"
+      ],
+      "name": "n1_256a/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "24"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "144",
+              "24"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_26/pointwise/Conv2D",
+        "n1_256a/pointwise/Conv2D"
+      ],
+      "name": "n1_256a/add",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "24"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Add"
+    },
+    {
+      "input": [
+        "n1_256a/add"
+      ],
+      "name": "n1_28a1/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "24",
+              "144"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_28a1/conv/Conv2D"
+      ],
+      "name": "n1_28a1/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "64"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_28a1/conv/Relu6"
+      ],
+      "name": "n1_28a1/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "144",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n1_28a1/depthwise/BiasAdd"
+      ],
+      "name": "n1_28a1/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "144"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_28a1/depthwise/Relu6"
+      ],
+      "name": "n1_28a1/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "144",
+              "32"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_28a1/pointwise/Conv2D"
+      ],
+      "name": "n1_28a2/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "32",
+              "192"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_28a2/conv/Conv2D"
+      ],
+      "name": "n1_28a2/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_28a2/conv/Relu6"
+      ],
+      "name": "n1_28a2/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "192",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n1_28a2/depthwise/BiasAdd"
+      ],
+      "name": "n1_28a2/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n1_28a2/depthwise/Relu6"
+      ],
+      "name": "n1_28a2/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "192",
+              "32"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n1_28a1/pointwise/Conv2D",
+        "n1_28a2/pointwise/Conv2D"
+      ],
+      "name": "n1_28a2/add",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Add"
+    },
+    {
+      "input": [
+        "n1_28a2/add"
+      ],
+      "name": "n3_14a1/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "32",
+              "192"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n3_14a1/conv/Conv2D"
+      ],
+      "name": "n3_14a1/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n3_14a1/conv/Relu6"
+      ],
+      "name": "n3_14a1/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "192",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n3_14a1/depthwise/BiasAdd"
+      ],
+      "name": "n3_14a1/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "192"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n3_14a1/depthwise/Relu6"
+      ],
+      "name": "n3_14a1/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "192",
+              "64"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n3_14a1/pointwise/Conv2D"
+      ],
+      "name": "n3_14a2/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "64",
+              "384"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n3_14a2/conv/Conv2D"
+      ],
+      "name": "n3_14a2/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n3_14a2/conv/Relu6"
+      ],
+      "name": "n3_14a2/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "384",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n3_14a2/depthwise/BiasAdd"
+      ],
+      "name": "n3_14a2/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n3_14a2/depthwise/Relu6"
+      ],
+      "name": "n3_14a2/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "384",
+              "64"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n3_14a1/pointwise/Conv2D",
+        "n3_14a2/pointwise/Conv2D"
+      ],
+      "name": "n3_14a2/add",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Add"
+    },
+    {
+      "input": [
+        "n3_14a2/add"
+      ],
+      "name": "n3_14a3/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "64",
+              "384"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n3_14a3/conv/Conv2D"
+      ],
+      "name": "n3_14a3/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n3_14a3/conv/Relu6"
+      ],
+      "name": "n3_14a3/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "384",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n3_14a3/depthwise/BiasAdd"
+      ],
+      "name": "n3_14a3/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n3_14a3/depthwise/Relu6"
+      ],
+      "name": "n3_14a3/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "384",
+              "64"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n3_14a2/add",
+        "n3_14a3/pointwise/Conv2D"
+      ],
+      "name": "n3_14a3/add",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Add"
+    },
+    {
+      "input": [
+        "n3_14a3/add"
+      ],
+      "name": "n4_112a/conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "64",
+              "384"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n4_112a/conv/Conv2D"
+      ],
+      "name": "n4_112a/conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n4_112a/conv/Relu6"
+      ],
+      "name": "n4_112a/depthwise/depthwise",
+      "attr": {
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "384",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "DepthwiseConv"
+    },
+    {
+      "input": [
+        "n4_112a/depthwise/BiasAdd"
+      ],
+      "name": "n4_112a/depthwise/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "384"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "n4_112a/depthwise/Relu6"
+      ],
+      "name": "n4_112a/pointwise/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "384",
+              "128"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "128"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "n4_112a/pointwise/Conv2D"
+      ],
+      "name": "Conv/Conv2D",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "U0FNRV9VUFBFUg=="
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "128",
+              "256"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Conv"
+    },
+    {
+      "input": [
+        "Conv/Conv2D"
+      ],
+      "name": "Conv/Relu6",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "8"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu6"
+    },
+    {
+      "input": [
+        "Conv/Relu6"
+      ],
+      "name": "pool_9/AvgPool",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "pooling_type": {
+          "s": "QVZH"
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkhXQw=="
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "7",
+              "7",
+              "1"
+            ]
+          }
+        },
+        "auto_pad": {
+          "s": "VkFMSUQ="
+        }
+      },
+      "op": "Pool"
+    },
+    {
+      "input": [
+        "pool_9/AvgPool"
+      ],
+      "name": "flatten/flatten/Shape",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "4"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Shape"
+    },
+    {
+      "input": [
+        "flatten/flatten/Shape"
+      ],
+      "name": "flatten/flatten/strided_slice",
+      "attr": {
+        "end_mask": {
+          "i": "0"
+        },
+        "begin_mask": {
+          "i": "0"
+        },
+        "starts": {
+          "list": {
+            "i": [
+              "0"
+            ]
+          }
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1"
+            ]
+          }
+        },
+        "ends": {
+          "list": {
+            "i": [
+              "1"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {}
+            ]
+          }
+        }
+      },
+      "op": "Slice"
+    },
+    {
+      "name": "flatten/flatten/Reshape/shape/1",
+      "attr": {
+        "value": {
+          "i": "-1"
+        },
+        "dtype": {
+          "type": "DT_INT32"
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {}
+            ]
+          }
+        }
+      },
+      "op": "Const"
+    },
+    {
+      "input": [
+        "flatten/flatten/strided_slice",
+        "flatten/flatten/Reshape/shape/1"
+      ],
+      "name": "flatten/flatten/Reshape/shape",
+      "attr": {
+        "axis": {
+          "i": "0"
+        },
+        "N": {
+          "i": "2"
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Pack"
+    },
+    {
+      "input": [
+        "pool_9/AvgPool"
+      ],
+      "name": "flatten/flatten/Reshape",
+      "attr": {
+        "shape": {
+          "list": {
+            "i": [
+              "-1",
+              "256"
+            ]
+          }
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Reshape"
+    },
+    {
+      "input": [
+        "flatten/flatten/Reshape"
+      ],
+      "name": "fc1/MatMul",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "units": {
+          "i": "256"
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              },
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "FullyConnected"
+    },
+    {
+      "input": [
+        "fc1/MatMul"
+      ],
+      "name": "fc1/Relu",
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "256"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "Relu"
+    },
+    {
+      "input": [
+        "fc1/Relu"
+      ],
+      "name": "output/MatMul",
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "units": {
+          "i": "7"
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "7"
+                  }
+                ]
+              },
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "7"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "op": "FullyConnected"
+    }
+  ]
+}
